@@ -1,8 +1,12 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var common_1 = require("../common");
 var linearSearch = function (items, item) {
-    return common_1.NO_MATCH;
+  for (var i = 0; i < items.length; i++) {
+    if (items[i] == item) {
+      return i;
+    }
+  }
+  return common_1.NO_MATCH;
 };
-exports.default = linearSearch;
-//# sourceMappingURL=linearSearch.js.map
+exports["default"] = linearSearch;
