@@ -2,7 +2,6 @@ from typing import List
 from math import floor
 from src.search import NO_MATCH, StrOrInt
 
-
 def linearSearch(items: List[StrOrInt],
                  itemToFind: StrOrInt) -> int:
     """
@@ -13,3 +12,5 @@ def linearSearch(items: List[StrOrInt],
             return index
 
     return NO_MATCH
+    
+    
