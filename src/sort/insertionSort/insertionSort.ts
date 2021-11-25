@@ -1,11 +1,25 @@
-import { SortAlgorithm } from "../common";
 import swap from "../swap";
 
-const insertionSort: SortAlgorithm<any> = <T>(items: T[]): T[] => {
+function insertionSort<T>(array: T[]): T[] {
+  for (let i = 1; i < array.length; i++) {
+    const item = array[i];
+    let index = i;
 
-    // Your code here
+    while (index > 0) {
+      const lower = index - 1;
+      const upper = index;
 
-    return items;
+      if (array[lower] > item) {
+        swap(array, lower, upper);
+      } else {
+        index = upper;
+        break;
+      }
+      index -= 1;
+    }
+    array[index] = item;
+  }
+  return array;
 }
 
 export default insertionSort;
