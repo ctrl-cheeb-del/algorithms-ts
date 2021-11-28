@@ -13,7 +13,7 @@ function mergeSortRecursive<T>(
 
   const middle = ~~((lPointer + rPointer) / 2);
 
-  const firstHalf = mergeSortRecursive(array, lPointer, middlqe);
+  const firstHalf = mergeSortRecursive(array, lPointer, middle);
   const secondHalf = mergeSortRecursive(array, middle + 1, rPointer);
 
   array = [];
