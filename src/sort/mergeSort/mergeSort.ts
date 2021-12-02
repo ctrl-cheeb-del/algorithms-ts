@@ -6,24 +6,24 @@ function mergeSort<T>(array: T[]): T[] {
 
 function mergeSortRecursive<T>(
   array: T[],
-  lPointer: number,
-  rPointer: number
+  firstPointer: number,
+  secondPointer: number
 ): T[] {
-  if (lPointer == rPointer) return [array[lPointer]];
+  if (firstPointer == secondPointer) return [array[firstPointer]];
 
-  const middle = ~~((lPointer + rPointer) / 2);
+  const middle = ~~((firstPointer + secondPointer) / 2);
 
-  const firstHalf = mergeSortRecursive(array, lPointer, middle);
-  const secondHalf = mergeSortRecursive(array, middle + 1, rPointer);
+  const firstbit = mergeSortRecursive(array, firstPointer, middle);
+  const secondbit = mergeSortRecursive(array, middle + 1, secondPointer);
 
   array = [];
 
-  while (firstHalf.length > 0 && secondHalf.length > 0) {
-    if (firstHalf[0] > secondHalf[0]) array.push(secondHalf.shift()!);
-    else array.push(firstHalf.shift()!);
+  while (firstbit.length > 0 && secondbit.length > 0) {
+    if (firstbit[0] > secondbit[0]) array.push(secondbit.shift()!);
+    else array.push(firstbit.shift()!);
   }
 
-  array.push(...firstHalf, ...secondHalf);
+  array.push(...firstbit, ...secondbit);
 
   return array;
 }
